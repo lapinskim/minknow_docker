@@ -1,0 +1,68 @@
+# Maintainer: lapinskim
+# Contributor: lapinskim
+pkgname=ont-kingfisher-ui-minion
+pkgver=5.2.13_1
+pkgrel=1
+pkgdesc="MinKNOW UI."
+arch=('any')
+url="https://community.nanoporetech.com/"
+license=('custom:non-free')
+groups=('')
+depends=('alsa-lib'
+         'atk'
+         'at-spi2-atk'
+         'at-spi2-core'
+         'cairo'
+         'dbus'
+         'desktop-file-utils'
+         'expat'
+         'gdk-pixbuf2'
+         'glib2'
+         'gtk3'
+         'hicolor-icon-theme'
+         'libappindicator-gtk2'
+         'libcups'
+         'libdrm'
+         'libnotify'
+         'libx11'
+         'libxcb'
+         'libxcomposite'
+         'libxdamage'
+         'libxext'
+         'libxfixes'
+         'libxkbcommon'
+         'libxrandr'
+         'libxshmfence'
+         'libxss'
+         'libxtst'
+         'mesa'
+         'nspr'
+         'nss>=3.22'
+         'pango')
+optdepends=('gconf'
+            'discord')
+replaces=('ont-kingfisher-ui'
+          'ont-minknow-frontend'
+          'ont-minknow-frontend-gridion'
+          'ont-minknow-frontend-minit'
+          'ont-minknow-frontend-promethion'
+          'ont-minknow-puffin-frontend'
+          'ont-minknow-static-frontend'
+          'ont-minknow-static-frontend-mk1c'
+          'ont-ond-kingfisher-ui'
+          'ont-ond-kingfisher-ui-gridion'
+          'ont-ond-kingfisher-ui-mk1c')
+options=('!strip' '!emptydirs')
+install=${pkgname}.install
+source=("http://cdn.oxfordnanoportal.com/apt/pool/non-free/o/ont-kingfisher-ui-minion/${pkgname}_${pkgver//_/-}~focal_all.deb")
+sha256sums=('aa4c422f3203c15087aac28db5610b7d96c4c6d418c5e303e4c665fa2d4d3df2')
+
+package(){
+
+	# Extract package data
+	tar xf data.tar.xz -C "${pkgdir}"
+
+	install -D -m644 "${pkgdir}/opt/ont/ui/kingfisher/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+	install -D -m644 "${pkgdir}/opt/ont/ui/kingfisher/LICENSES.chromium.html" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSES.chromium.html"
+
+}

@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+    ont-guppy:
+        build:
+            context: ./ont-guppy-gpu/
+        image: ont-guppy-gpu:22.08.4
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - driver: nvidia
+                          device_ids: ["0"]
+                          capabilities: ["compute"]
+        volumes:
+            - guppy-socket:/tmp/.guppy/
+            - ./minknow_log/guppy:/var/log/minknow/guppy
+
+    ont-minknow:
+        build:
+            context: ./ont-minknow/
+        image: ont-minknow:22.08.4
+        depends_on:
+            - ont-guppy
+        privileged: true
+        volumes:
+            - guppy-socket:/tmp/.guppy/
+            - /dev/bus/usb:/dev/bus/usb
+            - /tmp:/tmp
+            - ./minknow_log/minknow:/var/log/minknow
+            - ./minknow_log/ont-jwt-auth:/var/log/ont-jwt-auth
+            - ./minknow_data:/var/lib/minknow/data
+        ports:
+            - "8000-8007:8000-8007/tcp"
+            - "9501-9505:9501-9505/tcp"
+volumes:
+    guppy-socket:
