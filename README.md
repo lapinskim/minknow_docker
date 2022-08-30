@@ -3,7 +3,7 @@
 ---
 
 **Warning!**: Run a sequencing simulation to test your setup before committing to
-a true sequencing experiment. See [Testing](#Testing) for some instructions.
+a true sequencing experiment. See [Testing](#testing) for some instructions.
 
 **Note**: The `ont-minknow` container runs currently as a *privileged* container.
 Moreover the containers were not configured and tested under user namespace isolation.
