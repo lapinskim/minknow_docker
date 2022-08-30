@@ -148,7 +148,7 @@ insert before the `EXPOSE` directive in `ont-minknow/Dockerfile`:
 
    ```docker
    RUN sed -E -i \
-       -e '/\[custom_settings\]/a simulation = "/docker/path/to/your/bulk.fast5"' /opt/ont/minknow/conf/package/sequencing/sequencing_MIN106_DNA.toml
+       -e '/\[custom_settings\]/a simulation = "/container/path/to/your/bulk.fast5"' /opt/ont/minknow/conf/package/sequencing/sequencing_MIN106_DNA.toml
    ```
 
    Remember to change the `"/docker/path/to/your/bulk.fast5"` to the full path where
