@@ -1,4 +1,4 @@
-## -*- dockerfile-image-name: "ont-guppy" -*-
+## -*- dockerfile-image-name: "ont-guppy-gpu" -*-
 # syntax=docker/dockerfile:1
 FROM nvidia/cuda:11.6.2-base-ubuntu20.04
 

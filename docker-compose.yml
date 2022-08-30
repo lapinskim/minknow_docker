@@ -1,6 +1,14 @@
 version: "3.9"
 
 services:
+#    ont-guppy:
+#        build:
+#            context: ./ont-guppy-cpu/
+#        image: ont-guppy-cpu:22.08.4
+#        volumes:
+#            - guppy-socket:/tmp/.guppy/
+#            - ./minknow_log/guppy:/var/log/minknow/guppy
+
     ont-guppy:
         build:
             context: ./ont-guppy-gpu/
