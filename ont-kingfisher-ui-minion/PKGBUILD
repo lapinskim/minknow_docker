@@ -1,7 +1,7 @@
 # Maintainer: lapinskim
 # Contributor: lapinskim
 pkgname=ont-kingfisher-ui-minion
-pkgver=5.2.13_1
+pkgver=5.4.5_1
 pkgrel=1
 pkgdesc="MinKNOW UI."
 arch=('any')

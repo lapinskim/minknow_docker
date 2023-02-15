@@ -6,7 +6,7 @@ ENV TZ=Europe/Warsaw
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-ARG GUPPY_VERSION=6.2.7
+ARG GUPPY_VERSION=6.4.6
 
 ARG GUPPY_ARCHIVE=ont-guppy_${GUPPY_VERSION}_linux64.tar.gz
 

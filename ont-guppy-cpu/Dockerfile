@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get purge --autoremove -y curl \
     && rm -rf /var/lib/apt/lists/*
 
-ARG GUPPY_VERSION=6.2.7-1~focal
+ARG GUPPY_VERSION=6.4.6-1~focal
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ont-guppy-cpu-for-minion="$GUPPY_VERSION" \

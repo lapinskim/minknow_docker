@@ -16,11 +16,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get purge --autoremove -y curl \
     && rm -rf /var/lib/apt/lists/*
 
-ARG MINKNOW_NC_VERSION=22.08.4
-ARG MINKNOW_CORE_VERSION=5.2.2-focal
-ARG ONT_BREAM4_VERSION=7.2.8-1~focal
-ARG ONT_CONFIGURATION_CUSTOMER_VERSION=5.2.5-1~focal
-ARG ONT_VBZ_HDF_PLUGIN_VERSION=1.0.6-1~focal
+ARG MINKNOW_NC_VERSION=22.12.7
+ARG MINKNOW_CORE_VERSION=5.4.3-focal
+ARG ONT_BREAM4_VERSION=7.4.8-1~focal
+ARG ONT_CONFIGURATION_CUSTOMER_VERSION=5.4.7-1~focal
+ARG ONT_VBZ_HDF_PLUGIN_VERSION=1.0.7-1~focal
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     minknow-core-minion-nc="$MINKNOW_CORE_VERSION" \
