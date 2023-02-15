@@ -55,7 +55,7 @@ replaces=('ont-kingfisher-ui'
 options=('!strip' '!emptydirs')
 install=${pkgname}.install
 source=("http://cdn.oxfordnanoportal.com/apt/pool/non-free/o/ont-kingfisher-ui-minion/${pkgname}_${pkgver//_/-}~focal_all.deb")
-sha256sums=('aa4c422f3203c15087aac28db5610b7d96c4c6d418c5e303e4c665fa2d4d3df2')
+sha256sums=('b021d0ea7e931c821205f7cc68d772a3f566762426827e6d5900054db0685814')
 
 package(){
 
