@@ -13,7 +13,7 @@ ARG GUPPY_ARCHIVE=ont-guppy_${GUPPY_VERSION}_linux64.tar.gz
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     curl && \
-    curl -fsSLO https://mirror.oxfordnanoportal.com/software/analysis/$GUPPY_ARCHIVE && \
+    curl -fsSLO https://cdn.oxfordnanoportal.com/software/analysis/$GUPPY_ARCHIVE && \
     tar -xzf $GUPPY_ARCHIVE && \
     mkdir -v /opt/ont && \
     mv -v ont-guppy /opt/ont/guppy && \
