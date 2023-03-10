@@ -38,6 +38,8 @@ RUN cd "${MINKNOW_DIRECTORY}" || exit 1; \
     --set distribution_status="${DISTRO_STATUS}" \
     --conf system --filename=conf/sys_conf
 
+RUN ln -s /bin/true /bin/systemctl
+
 EXPOSE 8000-8007/tcp
 EXPOSE 9501-9505/tcp
 
