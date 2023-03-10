@@ -6,23 +6,21 @@ ENV TZ=Europe/Warsaw
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-ARG GUPPY_VERSION=6.4.6
-
-ARG GUPPY_ARCHIVE=ont-guppy_${GUPPY_VERSION}_linux64.tar.gz
-
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
-    curl && \
-    curl -fsSLO https://cdn.oxfordnanoportal.com/software/analysis/$GUPPY_ARCHIVE && \
-    tar -xzf $GUPPY_ARCHIVE && \
-    mkdir -v /opt/ont && \
-    mv -v ont-guppy /opt/ont/guppy && \
-    rm -v $GUPPY_ARCHIVE && \
+    curl \
+    gnupg2 && \
+    curl -fsSL https://cdn.oxfordnanoportal.com/apt/ont-repo.pub | apt-key add - && \
+    echo "deb http://cdn.oxfordnanoportal.com/apt focal-stable non-free" \
+    >/etc/apt/sources.list.d/nanoporetech.sources.list && \
     apt-get purge --autoremove -y curl \
     && rm -rf /var/lib/apt/lists/*
 
-RUN echo /opt/ont/guppy/lib > /etc/ld.so.conf.d/ont-guppy.conf && \
-    ldconfig
+ARG GUPPY_VERSION=6.4.6-1~focal
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ont-guppy-for-minion="$GUPPY_VERSION" \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV GUPPY_LOG_PATH=/var/log/minknow/guppy
 ENV GUPPY_CONFIG=dna_r9.4.1_450bps_fast.cfg
