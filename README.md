@@ -151,7 +151,7 @@ insert before the `EXPOSE` directive in `ont-minknow/Dockerfile`:
        -e '/\[custom_settings\]/a simulation = "/container/path/to/your/bulk.fast5"' /opt/ont/minknow/conf/package/sequencing/sequencing_MIN106_DNA.toml
    ```
 
-   Remember to change the `"/docker/path/to/your/bulk.fast5"` to the full path where
+   Remember to change the `"/container/path/to/your/bulk.fast5"` to the full path where
    you have mounted the file in the container (from the example above it would be
    `/mnt/data/bulk.fast5`). Adjust the TOML configuration file to your needs.
 
